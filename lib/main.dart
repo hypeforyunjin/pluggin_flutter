@@ -1,7 +1,8 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:pluggin_flutter/red_text_widget.dart';
-import 'package:pluggin_flutter/widget/takepicture_widget.dart';
+import 'package:pluggin_flutter/widgets/takepicture_widget.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -87,46 +88,46 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class TakePictureWidget extends StatefulWidget {
-  final CameraDescription camera;
+// class TakePictureWidget extends StatefulWidget {
+//   final CameraDescription camera;
 
-  const TakePictureWidget({Key? key, required this.camera}) : super(key: key);
+//   const TakePictureWidget({Key? key, required this.camera}) : super(key: key);
 
-  @override
-  _TakePictureWidgetState createState() => _TakePictureWidgetState();
-}
+//   @override
+//   _TakePictureWidgetState createState() => _TakePictureWidgetState();
+// }
 
-class _TakePictureWidgetState extends State<TakePictureWidget> {
-  late CameraController _controller;
-  late Future<void> _initializeControllerFuture;
+// class _TakePictureWidgetState extends State<TakePictureWidget> {
+//   late CameraController _controller;
+//   late Future<void> _initializeControllerFuture;
 
-  @override
-  void initState() {
-    super.initState();
-    _controller = CameraController(
-      widget.camera,
-      ResolutionPreset.high,
-    );
-    _initializeControllerFuture = _controller.initialize();
-  }
+//   @override
+//   void initState() {
+//     super.initState();
+//     _controller = CameraController(
+//       widget.camera,
+//       ResolutionPreset.high,
+//     );
+//     _initializeControllerFuture = _controller.initialize();
+//   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     super.dispose();
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<void>(
-      future: _initializeControllerFuture,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          return CameraPreview(_controller);
-        } else {
-          return Center(child: CircularProgressIndicator());
-        }
-      },
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return FutureBuilder<void>(
+//       future: _initializeControllerFuture,
+//       builder: (context, snapshot) {
+//         if (snapshot.connectionState == ConnectionState.done) {
+//           return CameraPreview(_controller);
+//         } else {
+//           return Center(child: CircularProgressIndicator());
+//         }
+//       },
+//     );
+//   }
+// }
